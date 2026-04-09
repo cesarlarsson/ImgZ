@@ -3,153 +3,152 @@
 
   # ImgZ
 
-  ### Compresión de imágenes rápida y sencilla desde la línea de comandos
+  ### Fast and simple image compression from the command line
 
 </div>
 
-## 🎯 Objetivo del Proyecto
-**ImgZ** es una utilidad de línea de comandos (CLI) robusta y multiplataforma que permite comprimir por lotes (*bulk*) imágenes JPG y PNG. Diseñada para proporcionar la máxima simplicidad de uso en cualquier sistema operativo (Windows, macOS, Linux).
+## 🎯 Project Goal
+**ImgZ** is a robust and cross-platform Command Line Interface (CLI) utility that allows for bulk compression of JPG and PNG images. Designed to provide maximum ease of use across any operating system (Windows, macOS, Linux).
 
-## ✨ Características Principales
-*   **Procesamiento por Lotes:** Compresión masiva de archivos `.jpg` y `.png` dentro de una carpeta seleccionada.
-*   **Separación de Datos:** Genera un directorio de salida dedicado para los resultados comprimidos, manteniendo el origen intacto.
-*   **Control Avanzado (Configurable):** Permite ajustar parámetros críticos desde la CLI:
-    *   `--output-dir [RUTA]`: Define el directorio de salida (por defecto: `./compressed_images`).
-    *   `--jpg-quality [1-100]`: Define la calidad de compresión JPEG deseada (por defecto: 85).
-    *   `--max-dimension [PIXELS]`: Redimensiona las imágenes para limitar su tamaño máximo (ancho o alto en píxeles).
+## ✨ Main Features
+*   **Batch Processing:** Massive compression of `.jpg` and `.png` files within a selected folder.
+*   **Data Separation:** Generates a dedicated output directory for compressed results, keeping the original source intact.
+*   **Advanced Control (Configurable):** Allows adjusting critical parameters directly from the CLI:
+    *   `--output-dir [PATH]`: Defines the output directory (default: `./compressed_images`).
+    *   `--jpg-quality [1-100]`: Defines the desired JPEG compression quality (default: 85).
+    *   `--max-dimension [PIXELS]`: Resizes images to limit their maximum size (width or height in pixels).
 
-## 💻 Stack Tecnológico
-*   **Lenguaje:** Python 3.6+
-*   **Librerías Clave:** `Pillow` (PIL Fork) para manipulación de imágenes; `argparse` para manejo robusto de argumentos CLI.
-*   **Distribución:** Empaquetado como un paquete instalable con `setup.py` para crear el comando global **`imgz`**.
+## 💻 Technology Stack
+*   **Language:** Python 3.6+
+*   **Key Libraries:** `Pillow` (PIL Fork) for image manipulation; `argparse` for robust CLI argument handling.
+*   **Distribution:** Packaged as an installable package with `setup.py` to create the global command **`imgz`**.
 
-## 📋 Requisitos Previos
-*   Python 3.6 o superior
-*   pip (gestor de paquetes de Python)
+## 📋 Prerequisites
+*   Python 3.6 or higher
+*   pip (Python package manager)
 
-## 📦 Instalación
+## 📦 Installation
 
-### Opción 1: Instalación en Modo Desarrollo
+### Option 1: Development Mode Installation
 ```bash
-# 1. Clonar o navegar al directorio del proyecto
-cd /ruta/al/proyecto
+# 1. Clone or navigate to the project directory
+cd /path/to/project
 
-# 2. Instalar las dependencias
+# 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Instalar el paquete en modo desarrollo
+# 3. Install package in development mode
 pip install -e .
 ```
 
-### Opción 2: Instalación Estándar
+### Option 2: Standard Installation
 ```bash
-# Desde el directorio del proyecto
+# From the project directory
 pip install .
 ```
 
-## 🚀 Uso
+## 🚀 Usage
 
-### Sintaxis Básica
+### Basic Syntax
 ```bash
-imgz [OPCIONES] <directorio_entrada>
+imgz [OPTIONS] <input_directory>
 ```
 
-### Parámetros Disponibles
+### Available Parameters
 
-| Parámetro | Tipo | Por Defecto | Descripción |
-|-----------|------|-------------|-------------|
-| `input_dir` | Obligatorio | - | Ruta al directorio con las imágenes a comprimir |
-| `--output-dir` | Opcional | `./compressed_images` | Directorio donde se guardarán las imágenes procesadas |
-| `--jpg-quality` | Opcional | `85` | Calidad de compresión JPEG (1-100) |
-| `--max-dimension` | Opcional | `None` | Dimensión máxima en píxeles (ancho o alto) |
-| `--lang` | Opcional | `es` | Idioma de los mensajes (es/en) |
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `input_dir` | Required | - | Path to directory containing images to compress |
+| `--output-dir` | Optional | `./compressed_images` | Directory where processed images will be saved |
+| `--jpg-quality` | Optional | `85` | JPEG compression quality (1-100) |
+| `--max-dimension` | Optional | `None` | Maximum dimension in pixels (width or height) |
+| `--lang` | Optional | `es` | Output message language (es/en) |
 
-### Ejemplos de Uso
+### Usage Examples
 
-**Ejemplo 1: Compresión básica (valores por defecto)**
+**Example 1: Basic compression (default values)**
 ```bash
-imgz ./mis_fotos
+imgz ./my_photos
 ```
-- Comprime todas las imágenes JPG/PNG de `./mis_fotos`
-- Las guarda en `./compressed_images`
-- Usa calidad JPEG de 85
-- No redimensiona
+- Compresses all JPG/PNG images from `./my_photos`
+- Saves them to `./compressed_images`
+- Uses JPEG quality of 85
+- Does not resize
 
-**Ejemplo 2: Compresión con calidad personalizada**
+**Example 2: Compression with custom quality**
 ```bash
-imgz --jpg-quality 90 ./mis_fotos
+imgz --jpg-quality 90 ./my_photos
 ```
-- Comprime con calidad JPEG de 90 (mayor calidad)
+- Compresses with JPEG quality of 90 (higher quality)
 
-**Ejemplo 3: Compresión con redimensionamiento**
+**Example 3: Compression with resizing**
 ```bash
-imgz --max-dimension 1200 ./mis_fotos
+imgz --max-dimension 1200 ./my_photos
 ```
-- Redimensiona imágenes para que no excedan 1200px en ninguna dimensión
-- Mantiene la proporción de aspecto
+- Resizes images so they don't exceed 1200px in any dimension
+- Maintains aspect ratio
 
-**Ejemplo 4: Configuración completa personalizada**
+**Example 4: Full custom configuration**
 ```bash
-imgz --output-dir ./web_ready --jpg-quality 80 --max-dimension 1920 ./fotos_originales
+imgz --output-dir ./web_ready --jpg-quality 80 --max-dimension 1920 ./original_photos
 ```
-- Lee imágenes de `./fotos_originales`
-- Las guarda en `./web_ready`
-- Comprime JPG con calidad 80
-- Redimensiona a máximo 1920px
+- Reads images from `./original_photos`
+- Saves them to `./web_ready`
+- Compresses JPG with quality 80
+- Resizes to maximum 1920px
 
-**Ejemplo 5: Usar mensajes en inglés**
+**Example 5: Use English messages**
 ```bash
 imgz --lang en ./my_photos
 ```
-- Todos los mensajes de salida se mostrarán en inglés
+- All output messages will be displayed in English
 
-## 🏗️ Arquitectura del Proyecto
+## 🏗️ Project Architecture
 
 ```
 .
-├── config.py             # Traducciones y configuración multilenguaje
-├── image_processor.py    # Lógica de compresión y procesamiento por lotes
-├── cli.py                # Parsing de argumentos y validación de rutas
-├── image_compressor.py   # Punto de entrada principal (ejecutable)
-├── setup.py              # Configuración de instalación
-├── requirements.txt      # Dependencias del proyecto
-├── .gitignore            # Archivos y carpetas excluidas de Git
-├── README.md             # Documentación en español
-└── README_EN.md          # Documentación en inglés
+├── config.py             # Translations and multilanguage configuration
+├── image_processor.py    # Compression logic and batch processing
+├── cli.py                # Argument parsing and path validation
+├── image_compressor.py   # Main entry point (executable)
+├── setup.py              # Installation configuration
+├── requirements.txt      # Project dependencies
+├── .gitignore            # Files and folders excluded from Git
+├── README.md             # Documentation in Spanish
+└── README_EN.md          # Documentation in English
 ```
 
-## 🔧 Desarrollo
+## 🔧 Development
 
-### Estructura Modular del Código
+### Modular Code Structure
 
-**ImgZ** está diseñado con una arquitectura modular clara:
+**ImgZ** is designed with a clear modular architecture:
 
-1. **`config.py`** (47 líneas)
-   - Diccionario de traducciones multilenguaje
-   - Función helper `t()` para internacionalización
+1. **`config.py`** (47 lines)
+   - Multilanguage translation dictionary
+   - Helper function `t()` for internationalization
 
-2. **`image_processor.py`** (73 líneas)
-   - `compress_image()`: Procesa una imagen individual
-   - `process_batch()`: Coordina el procesamiento por lotes
-   - Lógica de compresión y redimensionamiento
+2. **`image_processor.py`** (73 lines)
+   - `compress_image()`: Processes an individual image
+   - `process_batch()`: Coordinates batch processing
+   - Compression and resizing logic
 
-3. **`cli.py`** (77 líneas)
-   - `parse_arguments()`: Parsing de argumentos CLI
-   - `validate_and_setup_paths()`: Validación y setup de directorios
-   - `run()`: Función principal de ejecución
+3. **`cli.py`** (77 lines)
+   - `parse_arguments()`: CLI argument parsing
+   - `validate_and_setup_paths()`: Directory validation and setup
+   - `run()`: Main execution function
 
-4. **`image_compressor.py`** (10 líneas)
-   - Punto de entrada principal del programa
+4. **`image_compressor.py`** (10 lines)
+   - Main program entry point
 
-### Ejecución en Modo Desarrollo
+### Running in Development Mode
 ```bash
-# Ejecutar directamente sin instalación
-python image_compressor.py --jpg-quality 85 ./mis_fotos
+# Run directly without installation
+python image_compressor.py --jpg-quality 85 ./my_photos
 ```
 
-## 📄 Licencia
-Este proyecto es de código abierto y está disponible para uso libre.
+## 📄 License
+This project is open source and available for free use.
 
 ---
-
 
