@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/smartrabbit/imgz/main/logo.png" alt="ImgZ Logo" width="400"/>
+  <img src="https://raw.githubusercontent.com/smartrabbit/imgz/main/ImgZ,jpg" alt="ImgZ Logo" width="400"/>
 
   # ImgZ
 
