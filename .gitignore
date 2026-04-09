@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.pyo
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Output directories
+compressed_images/
+
+# Test files
+test_input/
+*_test.png
+*_test.svg
+foto_test.png
+icono_test.svg
+salida_web.*
+icono_optimizado.*
+
+# OS
+.DS_Store
+Thumbs.db
