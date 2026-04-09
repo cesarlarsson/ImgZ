@@ -29,15 +29,22 @@
 
 ## 📦 Instalación
 
-### Opción 1: Instalación en Modo Desarrollo
+### Opción 1: Instalación en Modo Desarrollo (Recomendado con venv)
 ```bash
 # 1. Clonar o navegar al directorio del proyecto
 cd /ruta/al/proyecto
 
-# 2. Instalar las dependencias
+# 2. Crear y activar entorno virtual
+python -m venv venv
+# En Windows:
+venv\Scripts\activate
+# En Linux/Mac:
+source venv/bin/activate
+
+# 3. Instalar las dependencias
 pip install -r requirements.txt
 
-# 3. Instalar el paquete en modo desarrollo
+# 4. Instalar el paquete en modo desarrollo
 pip install -e .
 ```
 
