@@ -2,15 +2,15 @@ from setuptools import setup, find_packages
 
 setup(
     name='imgz',
-    version='1.0.0',
+    version='0.1.1',
     description='ImgZ - Herramienta CLI para compresión de imágenes',
-    packages=find_packages(),
+    py_modules=['image_compressor', 'image_processor', 'cli', 'config'],
     install_requires=[
         'Pillow'
     ],
     entry_points={
         'console_scripts': [
-            'imgz = image_compressor:main'
+            'imgz = cli:run'
         ]
     },
     python_requires='>=3.6',
